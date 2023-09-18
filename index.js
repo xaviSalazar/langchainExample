@@ -34,7 +34,7 @@ const textSplitter = new RecursiveCharacterTextSplitter({
 // Embed and store the splits in a vector database 
 // (for demo purposes we use an unoptimized, in-memory example but you can browse integrations here):
 
-const embeddings = new OpenAIEmbeddings({verbose:true, openAIApiKey: "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" });
+const embeddings = new OpenAIEmbeddings({verbose:true, openAIApiKey: "" });
 
 const vectorStore = await MemoryVectorStore.fromDocuments(splitDocs, embeddings);
 
@@ -45,7 +45,7 @@ const vectorStore = await MemoryVectorStore.fromDocuments(splitDocs, embeddings)
 // console.log(relevantDocs.length);
 
 // Getting Started
-const model = new ChatOpenAI({ modelName: "gpt-3.5-turbo", openAIApiKey: "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" });
+const model = new ChatOpenAI({ modelName: "gpt-3.5-turbo", openAIApiKey: "" });
 const chain = RetrievalQAChain.fromLLM(model, vectorStore.asRetriever());
 
 const response = await chain.call({
